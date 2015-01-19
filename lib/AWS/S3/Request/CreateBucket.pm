@@ -32,7 +32,7 @@ XML
         my $signer = AWS::S3::Signer->new(
             s3           => $s->s3,
             method       => 'PUT',
-            uri          => $s->protocol . '://' . $s->bucket . '.' . $s->endpoint . '/',
+            uri          => $s->protocol . '://' . $s->endpoint . '/' . $s->bucket . '/',
             content_type => 'text/plain',
             content_md5  => '',
             content      => \$xml,

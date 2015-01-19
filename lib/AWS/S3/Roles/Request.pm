@@ -51,12 +51,11 @@ has '_uri' => (
     default => sub {
         my $self = shift;
         my $m = $self->meta;
-
+        
         my $uri = URI->new(
             $self->protocol . '://'
-            . ( $m->has_attribute('bucket') ? $self->bucket . '.' : '' )
             . $self->endpoint
-            . '/'
+            . '/' . ( $m->has_attribute('bucket') ? $self->bucket . '/' : '' )
         );
 
         $uri->path( $self->key )
